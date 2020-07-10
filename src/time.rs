@@ -52,7 +52,7 @@ pub struct Bps(pub u32);
 ///
 /// let freq = 60.hz();
 /// ```
-#[derive(Clone, Copy, PartialEq, Debug)]
+#[derive(Default, Clone, Copy, PartialEq, Debug)]
 pub struct Hertz(pub u32);
 
 /// Kilohertz
