@@ -483,14 +483,14 @@ impl BKP {
 /// ```
 #[derive(Clone, Copy)]
 pub struct Clocks {
-    hclk: Hertz,
-    pclk1: Hertz,
-    pclk2: Hertz,
-    ppre1: u8,
-    ppre2: u8,
-    sysclk: Hertz,
-    adcclk: Hertz,
-    usbclk_valid: bool,
+    pub hclk: Hertz,
+    pub pclk1: Hertz,
+    pub pclk2: Hertz,
+    pub ppre1: u8,
+    pub ppre2: u8,
+    pub sysclk: Hertz,
+    pub adcclk: Hertz,
+    pub usbclk_valid: bool,
 }
 
 impl Clocks {
