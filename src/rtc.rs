@@ -29,7 +29,7 @@ const LSE_HERTZ: u32 = 32_768;
 */
 
 pub struct Rtc {
-    regs: RTC,
+    pub regs: RTC,
 }
 
 impl Rtc {
@@ -203,7 +203,7 @@ impl Rtc {
       485 of the manual. Performing writes using this function ensures that
       the writes are done correctly.
     */
-    fn perform_write(&mut self, func: impl Fn(&mut Self)) {
+    pub fn perform_write(&mut self, func: impl Fn(&mut Self)) {
         // Wait for the last write operation to be done
         while !self.regs.crl.read().rtoff().bit() {}
         // Put the clock into config mode
