@@ -584,3 +584,5 @@ where
         Ok(())
     }
 }
+
+pub mod i2c_slave;
