@@ -187,3 +187,6 @@ pub mod timer;
 pub mod usb;
 #[cfg(feature = "device-selected")]
 pub mod watchdog;
+
+#[cfg(all(feature = "device-selected", feature = "sdio"))]
+pub mod sdio;
