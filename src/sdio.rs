@@ -161,13 +161,10 @@ impl Sdio {
             //NOTE(unsafe) this reference will only be used for atomic writes with no side effects
             let rcc = &*RCC::ptr();
             // Enable and reset the sdio peripheral, it's the same bit position for both registers
-            bb::set(&rcc.apb2enr, 11);
+            bb::set(&rcc.ahbenr, 10);
 
             // Stall the pipeline to work around erratum 2.1.13 (DM00037591)
             cortex_m::asm::dsb();
-
-            bb::set(&rcc.apb2rstr, 11);
-            bb::clear(&rcc.apb2rstr, 11);
         }
 
         // Configure clock
