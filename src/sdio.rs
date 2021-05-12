@@ -579,9 +579,9 @@ impl Sdio {
             // Wait for command sent or a timeout
             while {
                 sta = self.sdio.sta.read();
-                c_timeout = sta.ctimeout().bit();
-                sta_cmdsent = sta.cmdsent().bit();
-                sta_cmdact = sta.cmdact();
+                let c_timeout = sta.ctimeout().bit();
+                let sta_cmdsent = sta.cmdsent().bit();
+                let sta_cmdact = sta.cmdact();
 
                 (!(sta.ctimeout().bit() || sta.cmdsent().bit()) || sta.cmdact().bit_is_set())
                     && timeout > 0
