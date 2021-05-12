@@ -188,5 +188,5 @@ pub mod usb;
 #[cfg(feature = "device-selected")]
 pub mod watchdog;
 
-#[cfg(all(feature = "device-selected", feature = "sdio"))]
+#[cfg(all(feature = "device-selected", feature = "sdio", feature = "high"))]
 pub mod sdio;

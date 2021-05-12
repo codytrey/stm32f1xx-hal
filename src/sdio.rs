@@ -205,17 +205,17 @@ impl Sdio {
         self.cmd(cmd::idle())?;
 
         // Check if cards supports CMD 8 (with pattern)
-        self.cmd(cmd::send_if_cond(1, 0xAA))?;
-        let cic = CIC::from(self.sdio.respi1.read().bits());
+        // self.cmd(cmd::send_if_cond(1, 0xAA))?; //disabling to test
+        // let cic = CIC::from(self.sdio.respi1.read().bits());
 
-        // If card did't echo back the pattern, we do not have a v2 card
-        if cic.pattern() != 0xAA {
-            return Err(Error::UnsupportedCardVersion);
-        }
+        // // If card did't echo back the pattern, we do not have a v2 card
+        // if cic.pattern() != 0xAA {
+        //     return Err(Error::UnsupportedCardVersion);
+        // }
 
-        if cic.voltage_accepted() & 1 == 0 {
-            return Err(Error::UnsupportedVoltage);
-        }
+        // if cic.voltage_accepted() & 1 == 0 {
+        //     return Err(Error::UnsupportedVoltage);
+        // }
 
         let ocr = loop {
             // Initialize card

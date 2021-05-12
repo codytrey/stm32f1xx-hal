@@ -1,0 +1,6 @@
+{
+    "rust-analyzer.cargo.features": [
+        "stm32f103",
+        "high"
+    ]
+}
